@@ -1,0 +1,7 @@
+filters:
+  backend:
+    - "app/src/**/*.kt"
+    - "!app/src/test/**"
+  docs:
+    - "README.md"
+    - "docs/**/*.md"
