@@ -1,3 +1,6 @@
+import sys
+
+
 def write_env_file(results, output_path):
     """Purpose of this file is to convert our output according to the expected output from .env file"""
     lines = []  # empty list to store result
@@ -7,7 +10,10 @@ def write_env_file(results, output_path):
         value = "true" if matched else "false"
         lines.append(f"{name}={value}")
         # fstring to append name = value
-
-    # joining with new lines to acquire expected output
-    with open(output_path, "w") as f:
-        f.write("\n".join(lines) + "\n")
+    try:
+        # joining with new lines to acquire expected output
+        with open(output_path, "w") as f:
+            f.write("\n".join(lines) + "\n")
+    except OSError as e:
+        print(f"Error: Could not write the file : {e}")
+        sys.exit(1)
