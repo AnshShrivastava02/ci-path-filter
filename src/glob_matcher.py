@@ -1,7 +1,7 @@
 import re
 
 
-def globe_to_regex(pattern):
+def glob_to_regex(pattern):
     regex = ""
     i = 0
     """Walk through the pattern one piece at a time, translating glob symbols to regex."""
@@ -31,7 +31,7 @@ def globe_to_regex(pattern):
 
 def match_path(pattern, path):
     """This test will return true if a glob which is converted to regex matches the path"""
-    return re.match(globe_to_regex(pattern), path) is not None
+    return re.match(glob_to_regex(pattern), path) is not None
 
 
 # converted to boolean just to get True or False outputs
